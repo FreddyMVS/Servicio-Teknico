@@ -126,10 +126,12 @@ body {
 /* ── Catálogo ── */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    /* Cambio clave: forzamos exactamente 2 columnas del mismo ancho */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 2rem;
     padding: 1rem 2rem 3rem;
-    max-width: 1200px;
+    /* Reducimos el ancho máximo para que en monitores grandes no queden tarjetas gigantes */
+    max-width: 1000px; 
     margin: 0 auto;
 }
 
@@ -138,6 +140,7 @@ body {
 .card:nth-child(1) { animation-delay: .10s; }
 .card:nth-child(2) { animation-delay: .22s; }
 .card:nth-child(3) { animation-delay: .34s; }
+.card:nth-child(4) { animation-delay: .46s; } /* Agregué la demora para tu cuarta tarjeta */
 
 /* ── Tarjetas ── */
 .card {
@@ -287,7 +290,6 @@ body {
     box-shadow: 0 8px 28px rgba(37,211,102,.5);
 }
 
-
 /* ══════════════════════════════════════════
    PÁGINAS DE DETALLE
    ══════════════════════════════════════════ */
@@ -418,9 +420,9 @@ body {
 }
 .cta-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-
 /* ── Responsive ── */
-@media (max-width: 600px) {
+/* Aumentado a 768px para que las tablets y celulares muestren 1 sola columna ordenada */
+@media (max-width: 768px) {
     .header h1 { font-size: 2.6rem; }
     .catalog { grid-template-columns: 1fr; padding: 1rem; }
     .important-info { margin: 1rem 1rem 3rem; padding: 1.5rem; }
