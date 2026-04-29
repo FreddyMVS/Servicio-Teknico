@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rampart+One&family=Inter:wght@300;400;600&display=swap');
 /* ── Variables ── */
 :root {
     --bg: #fdf8f2;
@@ -430,4 +430,34 @@ body {
     .detail-wrapper h1 { font-size: 1.5rem; }
     .price-badge .price-amount { font-size: 1.35rem; }
     .whatsapp-float { bottom: 20px; right: 16px; padding: 11px 16px; font-size: .9rem; }
+}
+/* ── Efecto Splash de Minecraft ── */
+.minecraft-splash {
+    position: absolute;
+    right: -180px; /* Lo empuja un poco a la derecha del subtítulo */
+    bottom: -20px; /* Lo tira hacia abajo, debajo del texto principal */
+    font-family: 'Press Start 2P', cursive;
+    color: #000000; /* Texto en color negro */
+    font-size: 0.70rem;
+    text-shadow: 2px 2px 0px #cbd5e1; /* Sombra gris claro para el efecto 3D */
+    transform: rotate(-12deg); /* Un poco menos inclinado para que encaje mejor abajo */
+    transform-origin: center;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    animation: splashPulse 0.45s alternate infinite ease-in-out; 
+}
+
+@keyframes splashPulse {
+    from { transform: rotate(-12deg) scale(1); }
+    to   { transform: rotate(-12deg) scale(1.12); }
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .minecraft-splash {
+        right: 10px;
+        bottom: -20px;
+        font-size: 0.55rem;
+    }
 }
